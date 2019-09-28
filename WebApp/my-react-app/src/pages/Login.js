@@ -11,8 +11,6 @@ class Login extends Component{
      componentDidMount(){
          //disabled 为true时为禁止选中状态
          this.refs.btn.dsiabled = true;
-         //在挂载阶段判断token是否有效，免登陆   
-
      }
      //返回上一级路由
      goback=()=>{
@@ -62,6 +60,7 @@ class Login extends Component{
                 this.props.login(username,authorization)
                 //保存token到本地
                 localStorage.setItem('authorization',authorization);
+                localStorage.setItem('username',username);
             }else{
                 alert('用户名或密码错误');
             }

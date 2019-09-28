@@ -7,29 +7,34 @@ async function gettag(params){
 }
 //注册
 async function adduser(params){
-   // console.log(params,'params');
-   let res = await axios.post('http://localhost:1906/user/add',params);
-   // console.log(res,'api');
+   let res = await axios.post('http://localhost:1906/user/add',params); 
    return res;
 }
 //查询通过用户名查询用户数据
-async function finduser(params){
-   // console.log(params,'finduser');
+async function finduser(params){  
    let res = await axios.get(`http://localhost:1906/user/get/${params}`);
-   // console.log(res,'res');
    return res;
 }
 //登录校验
 async function login(params){
-   console.log(params,"login");
    let res = await axios.post('http://localhost:1906/user/login',params);
-   console.log(res,'login');
    return res;
 }
+//校验token
+async function checkToken(authorization){
+   let res = await axios.get('http://localhost:1906/verify',{
+      headers:{
+          Authorization:authorization
+      }
+   })
 
+   //console.log('active');
+   return res;
+}
 export default{
    gettag,
    adduser,
    finduser,
-   login
+   login,
+   checkToken
 }

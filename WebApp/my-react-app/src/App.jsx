@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { Route, Redirect, Switch, withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import { Menu, Icon, Badge } from 'antd';
+import Api from '@/api';
 //引入外部样式 
 import '@/style/common.scss';
 import Home from '~/Home';
@@ -36,7 +37,20 @@ class App extends Component{
             name: 'mine'
         }]
     }
-
+    //创建阶段判断token是否有效
+    async componentDidMount(){
+        // 判断是否已登录
+        let authorization = localStorage.getItem('authorization');
+        if(authorization){
+             // 发起校验
+            let token = await Api.checkToken(authorization);         
+            if(token){
+                //将用户名存到 redux
+                let username =  localStorage.getItem('username');
+                this.props.login(username,authorization);
+            }
+        }
+    }
     goto = (path) => {
         // 编程式导航：通过代码实现跳转
         // 如何获取history
@@ -100,4 +114,17 @@ class App extends Component{
 
 }
 App = withRouter(App);//返回一个新的组件 
+let mapStateToProps= function(state){
+     //console.log(state.common.token,'state.token');
+     return{
+     }
+ }
+ let mapDispatchToProps = function(dispatch){
+     return{
+        login(userInfo,token){
+            dispatch({type:'login',userInfo,token})
+          } 
+     }
+ }
+App = connect(mapStateToProps,mapDispatchToProps)(App);
 export default App;

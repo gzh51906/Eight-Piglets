@@ -52,7 +52,7 @@ class Mine extends Component{
     }
 }
 let mapStateToProps = (state)=>{
-    console.log(state.common.userInfo,'mine');
+   // console.log(state.common.userInfo,'mine');
    return{
        username:state.common.userInfo
    }

@@ -10,6 +10,7 @@ const { Search } = Input;
 
 class Home extends Component{
     state ={
+      username:this.props.usename,
         tag:[
             {imgurl:'../img/home/logo_cat_guide.png',
              text:'特色达人'},
@@ -102,6 +103,16 @@ class Home extends Component{
    reg=()=>{
     this.props.history.push('/reg');
    }
+   logout=()=>{
+     this.props.logout();
+     //清除本地存储
+     localStorage.setItem('username','');
+     localStorage.setItem('authorization','');
+     //清空username
+     this.setState({
+       username:''
+     })
+   }
     render(){
         return ( 
            <div className="home" >
@@ -116,8 +127,22 @@ class Home extends Component{
                     />
                 </Col>
                 <Col span={5} style={{color:'#ff5e69',fontSize:'14px',textAlign:'center'}}>
-                    <span onClick={this.log}>登陆</span>/
-                    <span onClick={this.reg}>注册</span>
+                      
+                          <span onClick={this.log}>登陆</span>/
+                          <span onClick={this.reg}>注册</span>   
+                      {/* 检验是否已登录 
+                     {
+                         this.state.username
+                        ?
+                         <>
+                          <span onClick={this.log}>登陆</span>/
+                          <span onClick={this.reg}>注册</span>         
+                         </>            
+                           :
+                         <span onClick={this.logout}>退出</span>         
+                      } */}
+
+
                 </Col>
              </Row>
              {/* 轮播图 */}
@@ -247,14 +272,18 @@ class Home extends Component{
     }
 }
 let mapStateToProps = function(state){
+ // console.log(state.common.userInfo,'username home');
     return{
-
+      username:state.common.userInfo
     }
 }
 let mapDispatchToProps = function(dispatch){
   return{
       getUser(){
       dispatch({type:'GET_USER'})
+     },
+     logout(){
+      dispatch({type:'logout'});
      }
   }
 }
