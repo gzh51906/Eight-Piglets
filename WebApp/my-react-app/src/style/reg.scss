@@ -1,0 +1,75 @@
+
+.reg h3,.login h3{
+   border-bottom:1px solid #ccc;
+   text-align:center;
+   font-size:20px;
+   padding:10px;
+}
+.reg h3 .icon , .login h3 .icon{
+   float:left;
+   color:#ff5e69 ;
+}
+.reg p ,.login p{
+    width:100%;
+    height:50px;
+    border-bottom:1px solid #ccc;
+    padding:0 10px;
+    line-height:50px;
+}
+.reg p label , .login p label{
+    display:inline-block;
+    width:15%;
+    font-size:16px;
+}
+.reg p input , .login p input{
+    width:80%;
+    border:none;
+    font-size:16px;
+    height:40px;
+    padding-left:5px;
+}
+.reg h4{
+    padding:0 10px;
+    color:#666;
+}
+.reg .btn ,.login .btn{
+    width:80%;
+   text-align:center;
+   background:#ddd;
+   border:none;
+   padding:10px 0;
+   font-size:20px;
+   margin-left:10%;
+   border-radius:10px;
+   margin-bottom:15px;
+}
+// 去除选中时黄色边框
+.reg input , .login input{
+  outline:none;
+}
+.reg li , .login li{
+    list-style:none;
+    height:50px;
+    line-height:50px;
+    color:#666;
+    font-size:14px;
+    text-align:center;
+}
+.reg li i , .login li i{
+    font-style:normal;
+    color:#1890ff;
+}
+.login .btn2{
+    width:80%;
+    text-align:center;
+    padding:10px 0;
+    font-size:20px;
+    margin-left:10%;
+    margin-bottom:15px;
+    background:none;
+    border:1px solid #ff5e69;
+    border-radius:0;
+}
+.btnCheck{
+    background:#ff5e69; 
+}

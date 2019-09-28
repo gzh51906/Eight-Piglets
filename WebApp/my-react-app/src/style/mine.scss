@@ -1,0 +1,65 @@
+.mine{
+    background:#eee;
+}
+.mine .header{
+    position:relative;
+    text-align:center;
+    line-height:150px;
+    width:100%;
+    height:150px;
+    background: url(https://pic.8pig.com/img/h5/new/my/bg.png) 0 0 no-repeat;
+    background-size: cover;
+}
+.mine .usehead{
+    position:absolute;
+    top:20%;
+    left:10%;
+}
+.mine .header .login{
+    font-size:24px;
+    color:white;
+    position:absolute;
+    left:30%;
+}
+.mine .content span{
+    display:block;
+    margin-bottom:0;
+    font-size:24px;
+}
+.mine .content .tag{
+    background:white;
+    text-align:center;
+    padding-bottom:10px;
+    border-bottom:1px solid #ccc;
+}
+.mine .tagtex{
+    padding:10px;
+}
+// .mine .tagtex after{
+//     position:absolute;
+//     right：0;
+//     top:50%;
+//     height:50%;
+//     width:1px;
+//     content:"";
+
+// }
+.mine .content .text{
+    background:white;
+    margin:20px 0;
+}
+.mine .content .text p{
+    background:white;
+    margin-left:10px;
+    height:50px;
+    line-height:50px;
+    font-size:18px;
+    border-bottom:1px solid #ccc;
+    margin-bottom:0;
+}
+
+.mine .content .text p i{
+    float:right;
+    font-style:normal;
+    padding-right:10px;
+}
