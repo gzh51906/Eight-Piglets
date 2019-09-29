@@ -193,7 +193,7 @@ class Home extends Component{
              <ul className="daNav">
                {
                  this.state.daRen.map((item)=>{
-                   return  <li key={item.name}>
+                   return  <li key={item.name} onClick={this.guide}>
                       <img src={item.imgurl}/>
                       <span>{item.text}</span>
                       <h3>{item.name}</h3>

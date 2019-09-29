@@ -1,3 +1,71 @@
 .guide{
-    
+    padding-top:50px;
+    padding-left:0;
+}
+.guide .nav{
+    width:100%; 
+    padding-left:0; 
+    position:fixed;
+    top:0;left:0;
+    z-index:10;
+    background:white;
+    height:40px;
+    line-height:40px;
+    margin-bottom:none;
+    overflow:hidden;
+    border-bottom:1px solid #ccc;
+}
+.guide .nav span{
+    width:25%;
+    display:inline-block;
+    height:30px;
+    padding:0 15px;
+    line-height:30px;
+    text-align:center;
+    font-size:16px;
+    border-right:1px solid #ccc;
+}
+.guide .nav .last{
+     border-right:none;
+}
+.guide .guidelist{
+  padding-left:0;
+}
+.guide .item{
+ padding:20px;
+ height:220px;
+ overflow:hidden;
+}
+.guide .item .row{
+    height:150px;
+    overflow:hidden;
+}
+.guide .item .bigimg{
+    width:130px;
+}
+.guide .item .right h3>span{
+    font-size:12px;
+    color:#666;
+    padding-left:10px;
+}
+.guide .item .right h4 span{
+    color:#666;
+    padding-left:5px;
+}
+.guide .item .right span i{
+    color:orange;
+    font-style:normal;
+    padding-right:2px;
+}
+.guide .item .right p{
+    height:65px;
+    overflow:hidden;
+    margin-bottom:none;
+}
+.guide .item>p span{
+    font-size:16px;
+    padding:3px 5px;
+    margin-right:8px;
+    border:1px solid #ccc;
+    border-radius:15px;
 }

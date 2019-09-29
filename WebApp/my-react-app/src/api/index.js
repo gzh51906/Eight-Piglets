@@ -29,14 +29,19 @@ async function checkToken(){
           Authorization:authorization
       }
    })
-
    //console.log('active');
    return res;
+}
+//达人
+async function guide(){
+   let {data:{data}}= await axios.get('http://localhost:1906/guide');
+   return data;
 }
 export default{
    gettag,
    adduser,
    finduser,
    login,
-   checkToken
+   checkToken,
+   guide
 }
