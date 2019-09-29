@@ -11,7 +11,9 @@ import Discover from '~/Discover';
 import Login from '~/Login';
 import Reg from '~/Reg';
 import More from '~/More';
-import Detail from '~/Detail'
+import Detail from '~/Detail';
+import Destilation from '~/Destilation';
+import Guide from '~/Guide';
 class App extends Component{
     state ={
         current: '/home',
@@ -26,10 +28,10 @@ class App extends Component{
             icon: 'eye',
             name: 'discover'
         }, {
-            path: '/detail',
-            text: '详情',
-            icon: 'file-text',
-            name: 'detail'
+            path: '/destilation',
+            text: '目的地',
+            icon: 'environment',
+            name: 'destilation'
         }, {
             path: '/mine',
             text: '我的',
@@ -37,24 +39,7 @@ class App extends Component{
             name: 'mine'
         }]
     }
-    //创建阶段判断token是否有效
-    async componentDidMount(){
-        // 判断是否已登录
-        let authorization = localStorage.getItem('authorization');
-        if(authorization){
-             // 发起校验
-            let token = await Api.checkToken(authorization);         
-            if(token){
-                //将用户名存到 redux
-                let username =  localStorage.getItem('username');
-                this.props.login(username,authorization);
-            }
-        }
-    }
     goto = (path) => {
-        // 编程式导航：通过代码实现跳转
-        // 如何获取history
-
         this.props.history.push(path)
 
     }
@@ -74,10 +59,12 @@ class App extends Component{
                         <Route path="/home" component={Home} />
                         <Route path="/login" component={Login} />
                         <Route path="/reg" component={Reg} />
-                        <Route path="/detail" component={Detail} />
+                        <Route path="/destilation" component={Destilation} />
+                        <Route path="/detail/:id" component={Detail} />
                         <Route path="/more" component={More} />
                         <Route path="/mine" component={Mine} />
                         <Route path="/discover" component={Discover} />
+                        <Route path="/guide" component={Guide} />
                         <Route path="/notfound" render={() => <div>404</div>} />
                         <Redirect from="/" to="/home" exact />
                         {/* 404 一定要写在最后面*/}
@@ -114,17 +101,4 @@ class App extends Component{
 
 }
 App = withRouter(App);//返回一个新的组件 
-let mapStateToProps= function(state){
-     //console.log(state.common.token,'state.token');
-     return{
-     }
- }
- let mapDispatchToProps = function(dispatch){
-     return{
-        login(userInfo,token){
-            dispatch({type:'login',userInfo,token})
-          } 
-     }
- }
-App = connect(mapStateToProps,mapDispatchToProps)(App);
 export default App;

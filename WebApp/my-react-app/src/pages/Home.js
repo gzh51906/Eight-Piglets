@@ -10,7 +10,7 @@ const { Search } = Input;
 
 class Home extends Component{
     state ={
-      username:this.props.usename,
+      username:this.props.username,
         tag:[
             {imgurl:'../img/home/logo_cat_guide.png',
              text:'特色达人'},
@@ -85,16 +85,25 @@ class Home extends Component{
           this.setState({
             tagcon: await Api.gettag(this.state.current)
           })
+            // 判断是否已登录
+        let authorization = localStorage.getItem('authorization');
+        if(authorization){
+             // 发起校验
+            let token = await Api.checkToken();                
+            if(token){
+                //将用户名存到 redux
+                let username =  localStorage.getItem('username');
+                this.setState({username:username});
+                this.props.login(username,authorization);
+            }
+        }         
      }
 
     handleClick = async (e)=> {
-      // console.log('click ', e);
       this.setState({
         current: e.key,
         tagcon: await Api.gettag(e.key)
       });
-      //发送数据请求获取对应key值下的数据 并修改选项卡
-
     };
    //跳转
    log=()=>{
@@ -112,6 +121,15 @@ class Home extends Component{
      this.setState({
        username:''
      })
+     alert('退出成功');
+   }
+   //达人
+   guide=()=>{
+     this.props.history.push('/guide');
+   }
+   //详情
+   detail=(id)=>{
+     this.props.history.push(`/detail/${id}`);
    }
     render(){
         return ( 
@@ -128,19 +146,19 @@ class Home extends Component{
                 </Col>
                 <Col span={5} style={{color:'#ff5e69',fontSize:'14px',textAlign:'center'}}>
                       
-                          <span onClick={this.log}>登陆</span>/
-                          <span onClick={this.reg}>注册</span>   
-                      {/* 检验是否已登录 
+                          {/* <span onClick={this.log}>登陆</span>/
+                          <span onClick={this.reg}>注册</span>    */}
+                       {/* 检验是否已登录  */}
                      {
                          this.state.username
                         ?
+                        <span onClick={this.logout}><Icon type="logout" />  退出</span>    
+                        :
                          <>
                           <span onClick={this.log}>登陆</span>/
                           <span onClick={this.reg}>注册</span>         
-                         </>            
-                           :
-                         <span onClick={this.logout}>退出</span>         
-                      } */}
+                         </>                   
+                      } 
 
 
                 </Col>
@@ -170,7 +188,7 @@ class Home extends Component{
             </Row>
             {/* 优质达人 */}
             <h2 className="daRen">优质达人 
-              <span className="people">更多></span>
+              <span className="people" onClick={this.guide}>更多></span>
             </h2>
              <ul className="daNav">
                {
@@ -222,8 +240,8 @@ class Home extends Component{
                     { 
                       this.state.tagcon.map((item)=>{
                          return(
-                          <li key={item._id}>
-                          <img src={item.imgUrl}/>
+                          <li key={item._id} onClick={this.detail.bind(this,item._id)}>
+                          <img src={item.imgUrl} />
                           <span>{item.cityName} {item.countryName}</span>
                           <h3>{item.journeyName}</h3>
                           <p>
@@ -278,13 +296,17 @@ let mapStateToProps = function(state){
     }
 }
 let mapDispatchToProps = function(dispatch){
+   
   return{
       getUser(){
-      dispatch({type:'GET_USER'})
+        dispatch({type:'GET_USER'})
      },
      logout(){
       dispatch({type:'logout'});
-     }
+     },
+     login(userInfo,token){
+      dispatch({type:'login',userInfo,token})
+    } 
   }
 }
 Home = connect(mapStateToProps,mapDispatchToProps)(Home);

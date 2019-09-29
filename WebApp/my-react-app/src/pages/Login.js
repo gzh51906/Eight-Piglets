@@ -12,9 +12,9 @@ class Login extends Component{
          //disabled 为true时为禁止选中状态
          this.refs.btn.dsiabled = true;
      }
-     //返回上一级路由
+     //返回首页
      goback=()=>{
-         this.props.history.go(-1);
+         this.props.history.push('/home');
      }
      check=()=>{
         let user = this.refs.user.value.trim();
@@ -36,20 +36,11 @@ class Login extends Component{
        //获取输入框的值
         let username = this.refs.user.value.trim();
         let password = this.refs.psw.value.trim();
-       //通过用户名获取用户数据
-        //  let {data:{data}} = await Api.finduser(username);
-        //  let {username:user, password:psw } = data[0];
-        //  if(user == username && psw == password){
-        //       alert('登录成功！');
-        //      //跳转到首页
-        //      this.props.history.push('/home');
-        //  }else{
-        //      alert('用户名或手机号错误');
-        //  }
 
          if(username && password){
              //发送数据请求进行数据校验
-             let {data} = await Api.login({username,password,});
+             let {data} = await Api.login({username,password});
+             console.log(data,'login');
             if(data.code ===1){
                
                 let {username,authorization} = data.data;
@@ -76,7 +67,7 @@ class Login extends Component{
               <div className="login">
                   <h3><Icon className="icon" onClick={this.goback.bind(this)} type="left" />登陆8只小猪</h3>
                   <p><label htmlFor="user">账号</label><input id="user" ref='user' onChange={this.check} placeholder="请输入手机号"/></p>
-                  <p><label htmlFor="password">密码</label><input id="password" ref='psw' onChange={this.check} placeholder="请输入密码"/></p>
+                  <p><label htmlFor="password">密码</label><input id="password" ref='psw' type="password" onChange={this.check} placeholder="请输入密码"/></p>
                   <div><input ref="btn" onClick={this.login} className="btn" type="submit" defaultValue="登陆"/></div>
                   <div><input ref="btn2" onClick={this.reg} className="btn2" type="button" defaultValue="注册"/></div>
                   <li>登陆代表您同意<i>《用户协议》</i></li>

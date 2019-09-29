@@ -17,12 +17,14 @@ async function finduser(params){
 }
 //登录校验
 async function login(params){
-   let res = await axios.post('http://localhost:1906/user/login',params);
+  
+  let res = await axios.post('http://localhost:1906/user/login',params);
    return res;
 }
 //校验token
-async function checkToken(authorization){
-   let res = await axios.get('http://localhost:1906/verify',{
+async function checkToken(){
+   let authorization = localStorage.getItem('authorization');
+   let {data:{data:{authorization:res}}} = await axios.get('http://localhost:1906/verify',{
       headers:{
           Authorization:authorization
       }
