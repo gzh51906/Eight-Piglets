@@ -129,7 +129,23 @@ class Home extends Component{
    }
    //详情
    detail=(id)=>{
-     this.props.history.push(`/detail/${id}`);
+     this.props.history.push(`/list`);
+   }
+   //跳转
+   story=()=>{
+    this.props.history.push('/story');
+   }
+   fresh=()=>{
+    this.props.history.push('/freshNew');
+   }
+   celebrity=()=>{
+      this.props.history.push('/celebrity');  
+   }
+   list=()=>{
+     this.props.history.push('/list');
+   }
+   destin=()=>{
+     this.props.history.push('message/destination');
    }
     render(){
         return ( 
@@ -139,7 +155,7 @@ class Home extends Component{
                     <img style={{width:'85%',height:'60%'}} src="https://pic.8pig.com/img/h5/new/common/logo_3x.png@.webp" />
                 </Col>
                 <Col span={12}>
-                <Input
+                <Input onClick={this.destin}
                     placeholder="想去哪里"
                     prefix={<Icon type="search" style={{ color: 'rgba(0,0,0,.25)' }} />}
                     />
@@ -165,14 +181,14 @@ class Home extends Component{
              </Row>
              {/* 轮播图 */}
              <Carousel autoplay>
-                <div>
+                <div onClick={this.story}>
                   <img src="https://pic.8pig.com/operation/h5Home/181206154443500e85094d9a0182afd0.jpg"/>
                 </div>
-                <div>
-                  <img src="https://pic.8pig.com/operation/h5Home/181206171205264285749922717e80e7.jpg"/>
+                <div onClick={this.celebrity}>
+                  <img   src="https://pic.8pig.com/operation/h5Home/181206171205264285749922717e80e7.jpg"/>
                 </div>
-                <div>
-                  <img src="https://8pig-file.oss-cn-shenzhen.aliyuncs.com/operation/webhome/quanqiubang.jpg"/>
+                <div onClick={this.fresh}>
+                  <img   src="https://8pig-file.oss-cn-shenzhen.aliyuncs.com/operation/webhome/quanqiubang.jpg"/>
                 </div>
              </Carousel>
              {/* tag */}
@@ -258,7 +274,7 @@ class Home extends Component{
            </div>
            {/* 推介专题 */}
            <h2 className="daRen">推介专题</h2>
-            <ul className="comnav">
+            <ul className="comnav" onClick={this.list}>
               <li>
                 <img src="../img/home/commend1.png" />
               </li>

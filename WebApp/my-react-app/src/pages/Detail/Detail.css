@@ -1,0 +1,88 @@
+.detail {
+  background-color: #fff;
+}
+.detail .detail-banner img {
+  width: 100%;
+  height: 280px;
+}
+.detail .ant-carousel {
+  height: 280px;
+  overflow: hidden !important;
+}
+.detail .ant-carousel .slick-dots-bottom {
+  top: 260px;
+}
+.detail .ant-carousel .slick-slide {
+  width: 100%;
+  height: 280px;
+}
+.ant-carousel .slick-dots li button {
+  height: 15px;
+  border-radius: 50%;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  width: 16px;
+}
+.ant-carousel .slick-dots li.slick-active button {
+  margin: 0 2px;
+}
+.bill {
+  margin-left: 13px;
+  margin-right: 13px;
+}
+.bill h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 10px;
+  margin-bottom: 3px;
+}
+.bill .play {
+  border-bottom: 1px solid #f4f4f4;
+  padding-bottom: 10px;
+}
+.bill span {
+  font-size: 14px;
+  margin-right: 15px;
+  color: #666;
+  line-height: 30px;
+}
+.bill i {
+  padding-right: 5px;
+}
+.bill .ant-rate {
+  margin-top: -5px;
+  font-size: 14px;
+}
+.bill .ant-rate-star-first i {
+  color: 14px;
+}
+.username {
+  margin-bottom: 0;
+  font-size: 16px;
+  color: #666;
+}
+.ant-rate-star:not(:last-child) {
+  margin-right: 0;
+}
+.into > p {
+  line-height: 14px;
+  padding-bottom: 12px;
+}
+.fix {
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.fix span {
+  display: inline-block;
+  width: 49%;
+  height: 50px;
+  background-color: #ff5e69;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+}
+.fix-right {
+  float: right;
+}

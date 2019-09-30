@@ -82,7 +82,7 @@ class Reg extends Component{
                   <h3><Icon className="icon" type="left" onClick={this.goback}/>注册账号</h3>
                    <p><label htmlFor="user">用户名</label><input ref="phone" onChange={this.check} id="user" type="text" placeholder="请输入手机号" /></p>
                    <p><label htmlFor="password">密码</label><input ref="pwd" onChange={this.check} id="password" type="password"  placeholder="请设置6-16位登陆密码"/></p>
-                   <h4>密码长度6~16位,由英文字母a~z(区分大小写)、数字0~9、至少两种特殊字符组成</h4>
+                   <h4>密码长度6~16位,由英文字母a~z(区分大小写)、数字0~9、必须包含数字和英文字母</h4>
                    <div><input ref="btn" onClick={this.sub} className="btn" type="submit" defaultValue="完成" /></div>
                    <li>继续操作代表您同意<i>《用户协议》</i></li>
             </div>

@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import {Menu,Icon,Row,Col} from 'antd'
+import {Menu,Icon,Row,Col,Spin} from 'antd'
 import { Route, Redirect, Switch, NavLink ,withRouter} from 'react-router-dom';
 //引入外部样式
 import '@/style/guide.scss';
@@ -15,8 +15,9 @@ class Guide extends Component{
          this.setState({guidelist:data});
     }
     gotoDes=()=>{
-        this.props.history.push('/destilation');
+        this.props.history.push('/message/destilation');
     }
+    
     render(){   
         return(
             <div className="guide">
@@ -27,8 +28,9 @@ class Guide extends Component{
                    <span className="last">筛选</span>
                </ul>
                <ul className="guidelist">
-                 {
-                     this.state.guidelist.map((item)=>{
+                   { this.state.guidelist ? 
+                    
+                      this.state.guidelist.map((item)=>{
                          return(
                             <li className='item'  key={item._id}>
                             <Row gutter={10} className="row">
@@ -54,7 +56,8 @@ class Guide extends Component{
                          </li>
                          ) 
                      })
-                 }
+                     : <Spin /> 
+                  }
                 
                </ul>
             </div>

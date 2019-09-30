@@ -7,12 +7,16 @@ import Api from '@/api';
 import '@/style/common.scss';
 import Home from '~/Home';
 import Mine from '~/Mine';
-import Discover from '~/Discover';
+import Discover from './pages/Discover/Discover.js';
+import Message from './pages/Message/Message.js';
+import Story from './pages/List/Story.js'
+import Celebrity from './pages/List/Celebrity.js'
+import FreshNew from './pages/List/FreshNew.js'
+import List from './pages/List/List.js'
 import Login from '~/Login';
 import Reg from '~/Reg';
 import More from '~/More';
-import Detail from '~/Detail';
-import Destilation from '~/Destilation';
+import Detail from '~/Detail/Detail';
 import Guide from '~/Guide';
 class App extends Component{
     state ={
@@ -28,10 +32,10 @@ class App extends Component{
             icon: 'eye',
             name: 'discover'
         }, {
-            path: '/destilation',
+            path: '/Message',
             text: '目的地',
             icon: 'environment',
-            name: 'destilation'
+            name: 'Message'
         }, {
             path: '/mine',
             text: '我的',
@@ -59,7 +63,11 @@ class App extends Component{
                         <Route path="/home" component={Home} />
                         <Route path="/login" component={Login} />
                         <Route path="/reg" component={Reg} />
-                        <Route path="/destilation" component={Destilation} />
+                        <Route path="/message" component={Message} />
+                        <Route path="/list" component={List} />
+                        <Route path="/story" component={Story} />
+                        <Route path="/celebrity" component={Celebrity} />
+                        <Route path="/freshNew" component={FreshNew} />
                         <Route path="/detail/:id" component={Detail} />
                         <Route path="/more" component={More} />
                         <Route path="/mine" component={Mine} />

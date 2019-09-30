@@ -1,0 +1,84 @@
+.say{
+    padding-top:50px;
+    background-color: #F2F2F2;
+}
+.logo-T{
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    height: 160px;
+    background-color: #FF5F69;
+}
+.logo-T>img{
+    width: 15%;
+    margin-top: 8%
+}
+.logo-T>p{
+    color: #fff;
+    margin-top: 7px;
+    font-size: 12px;
+}
+.content-one ul{
+    background-color: #fff;
+    height: 188px;
+    padding-top: 10px;
+}
+.content-two ul{
+    background-color: #fff;
+    height: 188px;
+    padding-top: 5px;
+}
+.content-one{
+    height: 190px;
+    width: 100%;
+    border-bottom: 1px solid #9999;
+}
+.content-one ul li:nth-child(3) .talk-content{
+    border-bottom: none;
+}
+.say ul li{
+    height: 45px;
+    margin-top: 10px;
+}
+.say ul li>span{
+    display:block;
+    padding-top: 5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    background-color: #64C8BB;
+    margin-left: 14px;
+    margin-top: 5px;
+    float: left;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+
+}
+.talk-content{
+    display: block;
+    float: right;
+    width: 83%;
+    border-bottom: 1px solid #cccccc;
+    position: relative;
+}
+.talk-content h3{
+    margin-bottom: 0px;
+}
+.talk-content p {
+    color: #ccc;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.talk-content span{
+    font-size: 16px;
+    position: absolute;
+    right: 6%;
+    bottom: 36%;
+}
+.content-two{
+    margin-top: 20px;
+}
+.tank{
+    background-color: #FF5F69 !important;
+}

@@ -1,0 +1,43 @@
+.story-talk {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.all-story {
+  width: 50%;
+  height: 308px;
+  margin-top: 15px;
+  padding-left: 15px;
+  position: relative;
+}
+.someone {
+  margin-right: 10px;
+}
+.someone > img {
+  width: 100%;
+  height: 217px;
+}
+.name {
+  padding: 7px;
+  height: 33px;
+  line-height: 18px;
+  position: absolute;
+  bottom: 34%;
+  left: 10%;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.address {
+  position: absolute;
+  bottom: 23%;
+  left: 10%;
+  color: #fff;
+  font-size: 20px;
+}
+.title {
+  margin: 3px;
+  font-size: 16px;
+  color: #000000;
+}

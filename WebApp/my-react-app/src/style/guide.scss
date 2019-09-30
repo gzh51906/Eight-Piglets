@@ -57,7 +57,12 @@
     font-style:normal;
     padding-right:2px;
 }
+// 三行文本省略
 .guide .item .right p{
+    display: -webkit-box;
+    overflow: hidden;  
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     height:65px;
     overflow:hidden;
     margin-bottom:none;

@@ -1,0 +1,59 @@
+*{
+    margin: 0;padding: 0;
+}
+.discover>.tit{
+    height: 40px;
+    border-bottom: 2px solid pink
+}
+.discover>.tit>p{
+    font-size: 18px;
+    width: 100%;
+    height: 40px;
+    color: chocolate;
+    line-height: 40px;
+    text-align: center;
+}
+.discover>.content{
+    width: 100%;
+    padding: 20px 20px;
+    
+}
+.story{
+    height: 30px;
+    width: 100%;
+}
+.story>h2{
+    display: block;
+    font-weight: 900;
+    float: left;
+    line-height: 30px;
+
+}
+.story>span{
+    float: right;
+    line-height: 30px;
+}
+.travel-story{
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    
+}
+.travel{
+    width: 43%;
+    margin-right: 20px;
+    flex-shrink: 0;
+}
+.travel>img{
+    width: 100%;
+}
+.travel>p{
+    width: 100%;
+}
+.thing{
+    width: 87%;
+    margin-bottom: 20px;
+}
+.thing>img{
+    width: 100%;
+}
